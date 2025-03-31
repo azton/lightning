@@ -59,7 +59,7 @@ class XPUAccelerator(Accelerator):
         if _IPEX_AVAILABLE:
             import intel_extension_for_pytorch as ipex
 
-            return ipex.xpu.is_available()
+            return torch.xpu.is_available()
         return False
 
     @override
@@ -99,7 +99,7 @@ def num_xpu_devices() -> int:
     if _IPEX_AVAILABLE:
         import intel_extension_for_pytorch as ipex
 
-        return ipex.xpu.device_count()
+        return torch.xpu.device_count()
     return 0
 
 
